@@ -1,10 +1,32 @@
 import * as React from "react";
 import { TextField } from "@material-ui/core";
+import { Formik, Form } from "formik";
 
-interface Props {
-  onSubmit: () => void;
+interface Values {
+  firstName: string;
+  lastName: string;
+  email: string;
 }
 
-export const MainForm: React.FC<Props> = () => {
-  return <TextField />;
+interface Props {
+  onSubmit: (values: Values) => void;
+}
+
+export const MainForm: React.FC<Props> = ({ onSubmit }) => {
+  return (
+    <Formik
+      initialValues={{
+        firstName: "",
+        lastName: "",
+        email: ""
+      }}
+      onSubmit={(values) => {
+        onSubmit(values);
+      }}
+    >
+      <Form>
+        <TextField />
+      </Form>
+    </Formik>
+  );
 };
