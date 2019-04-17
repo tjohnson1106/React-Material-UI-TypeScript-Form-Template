@@ -1,12 +1,12 @@
 import * as React from "react";
 import { FieldProps } from "formik";
 import { TextField } from "@material-ui/core";
-
-interface Props extends FieldProps {
-  placeholder: string;
-}
+import { TextFieldProps } from "@material-ui/core/TextField/TextField";
 
 // can add form for errors
-export const MainField: React.FC<Props> = ({ placeholder, field }) => {
-  return <TextField placeholder={placeholder} {...field} name="firstName" />;
+export const MainField: React.FC<FieldProps & TextFieldProps> = ({
+  placeholder,
+  field
+}) => {
+  return <TextField placeholder={placeholder} {...field} />;
 };
