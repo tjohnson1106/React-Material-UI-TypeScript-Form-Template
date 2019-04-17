@@ -1,6 +1,6 @@
 import * as React from "react";
-import { TextField } from "@material-ui/core";
-import { Formik, Form } from "formik";
+import { Button, TextField } from "@material-ui/core";
+import { Form, Formik, Field } from "formik";
 
 interface Values {
   firstName: string;
@@ -24,9 +24,31 @@ export const MainForm: React.FC<Props> = ({ onSubmit }) => {
         onSubmit(values);
       }}
     >
-      <Form>
-        <TextField />
-      </Form>
+      {({ values }) => (
+        <Form>
+          <div>
+            <Field
+              name="firstName"
+              placeholder="First Name"
+              component={MainForm}
+            />
+          </div>
+          <div>
+            <Field
+              name="lastName"
+              placeholder="Last Name"
+              component={MainForm}
+            />
+          </div>
+          <div>
+            <Field name="email" placeholder="email" component={MainForm} />
+          </div>
+
+          <Button type="submit">Submit</Button>
+
+          <pre>{JSON.stringify(values, null, 2)}</pre>
+        </Form>
+      )}
     </Formik>
   );
 };

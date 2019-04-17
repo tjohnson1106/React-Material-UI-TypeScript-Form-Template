@@ -9,7 +9,11 @@ const App = () => {
         textAlign: "center"
       }}
     >
-      <MainForm onSubmit={() => {}} />
+      <MainForm
+        onSubmit={({ email, firstName, lastName }) => {
+          console.log(email, firstName, lastName);
+        }}
+      />
     </div>
   );
 };
