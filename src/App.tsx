@@ -1,6 +1,7 @@
 import React from "react";
 
 import { MainForm } from "./MainForm";
+import MainTable from "./MainTable";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           console.log(email, firstName, lastName);
         }}
       />
+      <MainTable />
     </div>
   );
 };
